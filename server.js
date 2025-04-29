@@ -5,9 +5,10 @@ import authRoutes from './routes/auth.js';
 import postRoutes from './routes/posts.js';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
 const app = express();
-
+// console.log(process.env.MONGO_URI);
 app.use(cors({
   origin:"*"
 }));
@@ -22,3 +23,8 @@ mongoose
     app.listen(5000, () => console.log('Server running on http://localhost:5000'));
   })
   .catch((err) => console.error(err));
+
+// app.listen(process.env.PORT, async() => {
+//   await connectDB();
+//   console.log(`Server running on http://localhost:${process.env.PORT}`);
+// })
